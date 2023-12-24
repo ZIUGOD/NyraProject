@@ -1,31 +1,46 @@
-from django.shortcuts import render, redirect
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+from django.urls import reverse_lazy
 from .forms import NoteForm
 from .models import Note
 
 
-def create_note(request):
-    if request.method == "POST":
-        form = NoteForm(request.POST)
-
-        if form.is_valid():
-            form.save()
-
-            return redirect("read_note")
-    else:
-        form = NoteForm()
-
-    return render(request, "create_note.html", {"form": form})
-
-
-def read_note(request):
-    # Recupera todas as notas do banco de dados, ordenadas pela data de atualização
-    notes = Note.objects.all()
-
-    # Renderiza o template com a lista de notas
-    return render(request, "read_note.html", {"notes": notes})
-
-
-def update_note(request):
+class NoteCreateView(CreateView):
     model = Note
-    fields = ["title", "text"]
-    # template_name_suffix =
+    template_name = "components/create_note.html"
+    context_object_name = "note"
+    form_class = NoteForm
+    success_url = reverse_lazy("home_page")
+
+    def form_valid(self, form):
+        form.instance.uploaded_by = self.request.user
+        return super().form_valid(form)
+
+
+class NoteDetailView(DetailView):
+    model = Note
+    template_name = "components/detail.html"
+    context_object_name = "note"
+
+
+class NoteUpdateView(UpdateView):
+    model = Note
+    template_name = "components/update.html"
+    context_object_name = "note"
+    form_class = NoteForm
+    success_url = reverse_lazy("home_page")
+
+
+class NoteDeleteView(DeleteView):
+    model = Note
+    template_name = "components/delete.html"
+    context_object_name = "note"
+    success_url = reverse_lazy("home_page")
+
+
+class NoteListView(ListView):
+    model = Note
+    template_name = "notes/index.html"
+    context_object_name = "note"
+    ordering = ["-created_at"]
