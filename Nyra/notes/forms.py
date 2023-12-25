@@ -21,11 +21,14 @@ class NoteForm(forms.ModelForm):
         fields = ["title", "text"]
 
     def __init__(self, *args, **kwargs):
-        """
-        Initializes the NoteForm. Calls the __init__ method of the superclass
-        (forms.ModelForm) and sets custom labels for the 'title' and 'text'
-        fields.
-        """
         super(NoteForm, self).__init__(*args, **kwargs)
         self.fields["title"].label = "Título"
         self.fields["text"].label = "Texto"
+
+        self.fields["title"].widget.attrs.update(
+            {
+                "class": "form-control",
+                "placeholder": "Título",
+                "required": "required",
+            }
+        )

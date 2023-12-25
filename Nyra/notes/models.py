@@ -1,10 +1,10 @@
-# No seu aplicativo, crie ou ajuste o arquivo models.py
 from django.db import models
+from ckeditor.fields import RichTextField
 
 
 class Note(models.Model):
     title = models.CharField(max_length=255, verbose_name="Title")
-    text = models.TextField(verbose_name="Text")
+    text = RichTextField()
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created at: ")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Updated at: ")
 
