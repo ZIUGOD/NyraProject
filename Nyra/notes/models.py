@@ -3,7 +3,7 @@ from ckeditor.fields import RichTextField
 
 
 class Note(models.Model):
-    title = models.CharField(max_length=255, verbose_name="Title")
+    title = models.CharField(max_length=64, verbose_name="Title")
     text = RichTextField()
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created at: ")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Updated at: ")
