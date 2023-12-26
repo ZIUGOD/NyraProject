@@ -30,5 +30,6 @@ class NoteForm(forms.ModelForm):
                 "class": "form-control",
                 "placeholder": "Título",
                 "required": "required",
+                "maxlength": "64",
             }
         )
