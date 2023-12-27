@@ -4,20 +4,21 @@
     - Notes
 {% endblock title %}
 {% block content %}
-    <h2 class="text-center mb-4">NyraProject</h2>
     {% if note %}
-        <ul class="list-group">
+        <ul class="list-group text-success bg-dark">
             {% for note in note %}
                 <a href="{% url "read_note" note.id %}"
                    class="text-decoration-none m-1 rounded-10 shadow rounded-5">
-                    <li class="text-center bg-gradient-light list-group-item m-0 rounded-5">
-                        <h3 class="h3">{{ note.title }}</h3>
+                    <li class="text-center text-success bg-dark list-group-item rounded-5">
+                        <h3 class="h3">{{ note.title|safe }}</h3>
                         <span class="text-secondary">{{ note.created_at }}</span>
                     </li>
                 </a>
             {% endfor %}
         </ul>
     {% else %}
-        <p>Não há notas disponíveis no momento.</p>
+        <div class="shadow rounded-5 pt-5 pb-4 ">
+            <p class="text-center">Nenhuma nota disponível no momento 💀☠️</p>
+        </div>
     {% endif %}
 {% endblock content %}

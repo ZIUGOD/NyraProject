@@ -6,7 +6,7 @@ class Note(models.Model):
     title = RichTextField(
         verbose_name="Título",
         unique=True,
-        max_length=64,
+        max_length=128,
     )
 
     text = RichTextField(
@@ -23,7 +23,7 @@ class Note(models.Model):
     )
 
     def __str__(self):
-        return self.title
+        return self.title[:128]
 
     class Meta:
         ordering = ["-updated_at"]

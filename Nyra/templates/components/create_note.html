@@ -1,0 +1,24 @@
+{% extends "components/base.html" %}
+{% load static %}
+{% block title %}
+    - Create new note
+{% endblock title %}
+{% block content %}
+    <form method="post"
+          action="{% url "create_note" %}"
+          class="p-3 border rounded-5 shadow m-2 text-center border-primary">
+        {% csrf_token %}
+        <div class="text-center m-2">
+            {{ form.media }}
+            {{ form.as_p }}
+            <div class="text-center my-3 mb-5">
+                <input type="submit"
+                       value="Criar nota"
+                       class="m-2 py-2 px-3 shadow rounded-5 btn btn-primary">
+                <button type="button"
+                        onclick="window.history.back()"
+                        class="m-2 py-2 px-3 shadow rounded-5 btn btn-secondary">Voltar</button>
+            </div>
+        </div>
+    </form>
+{% endblock content %}

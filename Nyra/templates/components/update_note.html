@@ -1,0 +1,21 @@
+{% extends "components/base.html" %}
+{% load static %}
+{% block title %}
+    - Atualizar nota
+{% endblock title %}
+{% block content %}
+    <form method="post"
+          action="{% url "update_note" note.id %}"
+          class="p-3 border rounded-5 shadow m-2 text-center border-warning">
+        {% csrf_token %}
+        <h2 class="h2 m-2 text-center">{{ note.title|safe }}</h2>
+        {{ form.media }}
+        {{ form.as_p }}
+        <div class="text-center my-3 mb-5">
+            <button type="submit" class="m-2 py-2 px-3 shadow rounded-5 btn btn-warning">Atualizar nota</button>
+            <button type="button"
+                    class="m-2 py-2 px-3 shadow rounded-5 btn btn-secondary"
+                    onclick="window.history.back()">Voltar</button>
+        </div>
+    </form>
+{% endblock content %}
