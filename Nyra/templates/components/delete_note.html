@@ -15,11 +15,11 @@
         </div>
         <hr />
         <div class="text-center m-3">
-            <span class="text-secondary">{{ note.created_at }}</span>
+            <span class="text-success">Criada em: {{ note.created_at }}</span>
         </div>
         {% if note.created_at != note.updated_at %}
             <div class="text-center m-3">
-                <span class="text-secondary">{{ note.updated_at }}</span>
+                <span class="text-success">Editada em: {{ note.updated_at }}</span>
             </div>
         {% endif %}
         <div class="m-5">
