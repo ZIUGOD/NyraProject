@@ -1,9 +1,11 @@
 {% load static %}
+<link href="{% static "notes/css/header.css" %}" rel="stylesheet">
 {% block header %}
-    <header class="navbar navbar-expand-md navbar-light d-flex flex-wrap justify-content-between py-3 mb-4 border-bottom text-success bg-dark">
-        <a href="{% url "home_page" %}"
-           class="navbar-brand d-flex align-items-center mb-1 mb-md-0 me-md-auto link-body-emphasis text-decoration-none text-success text-success bg-dark">
-            <span class="h1 text-success text-success bg-dark">Nyra</span>
+    <header class="navbar navbar-expand-md navbar-light d-flex flex-wrap justify-content-between py-3 mb-4 border-bottom text-success bg-black">
+        <a id="nyra-home-page"
+           href="{% url "home_page" %}"
+           class="navbar-brand d-flex align-items-center mb-1 mb-md-0 me-md-auto">
+            <h1 class="h1">Nyra</h1>
         </a>
         <div class="order-md-last">
             <button class="navbar-toggler"
@@ -19,7 +21,8 @@
                 <ul class="navbar-nav text-center">
                     <li class="nav-item">
                         <a href="{% url "create_note" %}"
-                           class="nav-link shadow rounded-5 px-3 py-2 text-dark bg-success">Criar nota</a>
+                           class="nav-link shadow rounded-5 px-3 py-2"
+                           id="create-note">Criar nota</a>
                     </li>
                 </ul>
             </div>

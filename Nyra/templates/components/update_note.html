@@ -11,6 +11,14 @@
         <h2 class="h2 m-2 text-center">{{ note.title|safe }}</h2>
         {{ form.media }}
         {{ form.as_p }}
+        <div class="text-center m-3">
+            <span class="text-success">Criada em: {{ note.created_at }}</span>
+        </div>
+        {% if note.created_at != note.updated_at %}
+            <div class="text-center m-3">
+                <span class="text-success">Editada em: {{ note.updated_at }}</span>
+            </div>
+        {% endif %}
         <div class="text-center my-3 mb-5">
             <button type="submit" class="m-2 py-2 px-3 shadow rounded-5 btn btn-warning">Atualizar nota</button>
             <button type="button"

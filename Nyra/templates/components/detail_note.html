@@ -6,20 +6,20 @@
 {% block content %}
     <form method="post"
           action="{% url "read_note" note.id %}"
-          class="p-3 border rounded-5 shadow m-2 text-center border-success">
+          class="p-3 border rounded-5 shadow m-2 border-success">
         {% csrf_token %}
         <h2 class="h2 m-2 font-weight-normal text-center">{{ note.title|safe }}</h2>
         <hr />
         <div class="p-3">
-            <p class="text-justify font-weight-normal lead">{{ note.text|safe }}</p>
+            <p class="lead">{{ note.text|safe }}</p>
         </div>
         <hr />
         <div class="text-center m-3">
-            <span class="text-secondary">Criada em: {{ note.created_at }}</span>
+            <span class="text-success">Criada em: {{ note.created_at }}</span>
         </div>
         {% if note.created_at != note.updated_at %}
             <div class="text-center m-3">
-                <span class="text-secondary">Última edição em: {{ note.updated_at }}</span>
+                <span class="text-success">Editada em: {{ note.updated_at }}</span>
             </div>
         {% endif %}
     </form>
