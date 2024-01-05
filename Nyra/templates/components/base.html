@@ -8,13 +8,14 @@
         <meta name="author" content="ZIUGOD">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="{% static "notes/img/icon.png" %}">
+        <link href="{% static "notes/css/base.css" %}" rel="stylesheet">
         <title>
             Nyra
             {% block title %}
             {% endblock title %}
         </title>
     </head>
-    <body class="container text-success bg-dark">
+    <body class="bg-black container px-2 mb-5">
         {% include "components/header.html" %}
         {% block content %}
         {% endblock content %}
