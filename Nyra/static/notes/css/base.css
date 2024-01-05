@@ -1,0 +1,11 @@
+::selection {
+    background: lime;
+    color: black;
+}
+
+* {
+    color: lime;
+    background-color: black;
+    font-size: 1rem;
+    font-weight: 400;
+}
