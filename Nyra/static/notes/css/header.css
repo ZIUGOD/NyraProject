@@ -1,0 +1,23 @@
+header {
+    transition: 0.3s;
+}
+
+#nyra-home-page:hover {
+    text-shadow: 0 0 2em lime;
+    transition: 0.3s;
+}
+
+#nyra-home-page {
+    background: black;
+    color: lime;
+    font-size: 2rem;
+    transition: 0.3s;
+    transition: 0.3s;
+}
+
+.navbar-nav li #create-note {
+    border-radius: 100em;
+    background-color: lime;
+    color: black;
+    border: 0.1em solid #99ff99;
+}
